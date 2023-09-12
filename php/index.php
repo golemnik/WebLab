@@ -11,29 +11,29 @@
 </head>
 <body>
 
+
 <div class="input-er">
     <h1>Lab 1</h1>
-    <form action="Work.php" method="post">
+    <form name="dart" action="Work.php" method="post" onsubmit="return check();">
         <div class="input-box">
-            <input type="radio" value="-2" name="x">
-            <input type="radio" value="-1.5" name="x">
-            <input type="radio" value="-1" name="x">
-            <input type="radio" value="-0.5" name="x">
-            <input type="radio" value="0" name="x">
-            <input type="radio" value="0.5" name="x">
-            <input type="radio" value="1" name="x">
-            <input type="radio" value="1.5" name="x">
-            <input type="radio" value="2" name="x">
-<!--            <input type="" name="x" required="">-->
-            <label > Insert X:</label>
+            <label for="x1">-2</label><input id="x1" type="radio" value="-2" name="x">
+            <label for="x2">-1.5</label><input id="x2" type="radio" value="-1.5" name="x">
+            <label for="x3">-1</label><input id="x3" type="radio" value="-1" name="x">
+            <label for="x4">-0.5</label><input id="x4" type="radio" value="-0.5" name="x">
+            <label for="x5">0</label><input id="x5" type="radio" value="0" name="x" checked>
+            <label for="x6">0.5</label><input id="x6" type="radio" value="0.5" name="x">
+            <label for="x7">1</label><input id="x7" type="radio" value="1" name="x">
+            <label for="x8">1.5</label><input id="x8" type="radio" value="1.5" name="x">
+            <label for="x9">2</label><input id="x9" type="radio" value="2" name="x">
+            <label > Insert X</label>
         </div>
         <div class="input-box">
-            <input type="text" name="y" required="" placeholder="-3 ... 3" value="1">
-            <label> Insert Y:</label>
+            <input type="text" id="y" name="y" required="" placeholder="-3 ... 3" value="1">
+            <label> Insert Y</label>
         </div>
         <div class="input-box">
-            <input type="text" name="r" required="" placeholder="1 ... 4" value="1">
-            <label > Insert R:</label>
+            <input type="text" id="r" name="r" required="" placeholder="1 ... 4" value="1">
+            <label > Insert R</label>
         </div>
         <br>
         <div>
@@ -55,12 +55,8 @@
         </tr>
         <?php
         session_start();
-        show_dot($_SESSION['dots']);
-        function show_dot ($dots) {
-            if (empty($dots)) {
-                return;
-            }
-            foreach ($dots as $dot) {
+        if(array_key_exists('dots', $_SESSION)) {
+            foreach ($_SESSION['dots'] as $dot) {
                 echo "<tr>";
                 foreach ($dot as $d) {
                     echo "<td> $d </td>";
@@ -71,6 +67,19 @@
         ?>
     </table>
 </div>
+
+<div>
+    <script src="../js/draw.js"></script>
+    <canvas id="canvas" width="900" height="900">
+        <script>draw()</script>
+    </canvas>
+</div>
+<div>
+    <script src="../js/main.js"></script>
+</div>
+
 </body>
 </html>
+
+
 

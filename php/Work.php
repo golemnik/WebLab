@@ -23,7 +23,8 @@ function update_stats($dots)
 }
 function load_dots () {
     if (empty($_SESSION)) {
-        return [[0, 0, 0, 'N', date('H:i:s')]];
+        return array();
+//        return [[0, 0, 0, 'N', date('H:i:s')]];
     }
     return $_SESSION['dots'];
 }
@@ -32,16 +33,7 @@ function save_dots($dots) {
     $_SESSION['dots'] = $dots;
 }
 
-function show_dot ($dots) {
-//    global $result;
-    foreach ($dots as $dot) {
-//        $result += "<tr>";
-        echo "<tr>";
-        foreach ($dot as $d) {
-//            $result += "<td> $d </td>";
-            echo "<td> $d </td>";
-        }
-//        $result += "</tr>";
-        echo "</tr>";
-    }
+function validate($x, $y, $r)
+{
+
 }
